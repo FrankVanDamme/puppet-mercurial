@@ -1,34 +1,41 @@
 # File is managed by Puppet
+# Dat betekent: wordt overschreven! 
 
 [alias]
-latest = log --limit 5
+#latest = log --limit 5
 
 
 [diff]
 # Ignore white space when comparing lines
-ignorews = TRUE
+#ignorews = TRUE
 
 # Ignore white space when comparing lines
-ignorewsamount = TRUE
+#ignorewsamount = TRUE
 
 # Ignore changes whose lines are all blank
 ignoreblanklines = TRUE
 
 # Use git extended diff format
-git = TRUE
+#git = TRUE
 
 
 [ui]
-username = <%= username %>
-askusername = False
-debug = False
-quiet = False
-verbose = False
+#username = <%= username %>
+#askusername = False
+#debug = False
+#quiet = False
+#verbose = False
 
 
 [extensions]
 fetch =
+graphlog = 
 
+<% if !(trusted_groups.empty?) %>
+[trusted]
+groups=<% trusted_groups.each do |g| -%><%= g %>,<% end -%> <% end %>
+# [trusted]
+# groups=jenkins-test,otec
 
 <% if !(auth_groups.empty?) %>
 [auth]
