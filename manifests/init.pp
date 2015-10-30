@@ -36,6 +36,13 @@ class mercurial(
     provider => $provider,
   }
 
+  if ( $::operatingsystem == "OpenIndiana" ){
+      package { 'python27':
+	  provider => $provider,
+	  ensure   => present,
+      }
+  }
+
   file { "hgdir":
     ensure  => directory,
     path    => "${$conf_dir}",
