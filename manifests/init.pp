@@ -51,6 +51,6 @@ class mercurial(
     ensure  => $package_ensure,
     path    => "${$conf_dir}/${$conf_file}",
     content => template('mercurial/hgrc.erb'),
-    require => [ Package['hg'], File["hgdir"] ],
+    require => [ Package["mercurial"], File["hgdir"] ],
   }
 }
