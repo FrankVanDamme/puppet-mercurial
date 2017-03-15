@@ -23,7 +23,6 @@
 #
 #
 class mercurial(
-  $username,
   $auth_groups = $mercurial::params::auth_groups,
   $trusted_groups = $mercurial::params::trusted_groups,
   $provider       = $mercurial::params::provider,
