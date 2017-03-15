@@ -30,15 +30,15 @@ ignoreblanklines = TRUE
 fetch =
 graphlog = 
 
-<% if !(trusted_groups.empty?) %>
+<% if !(@trusted_groups.empty?) %>
 [trusted]
-groups=<% trusted_groups.each do |g| -%><%= g %>,<% end -%> <% end %>
+groups=<% @trusted_groups.each do |g| -%><%= g %>,<% end -%> <% end %>
 # [trusted]
 # groups=jenkins-test,otec
 
-<% if !(auth_groups.empty?) %>
+<% if !(@auth_groups.empty?) %>
 [auth]
-<% auth_groups.each do |g| -%>
+<% @auth_groups.each do |g| -%>
 <%= g['group'] %>.prefix = <%= g['prefix'] %>
 <%= g['group'] %>.username = <%= g['username'] %>
 <%= g['group'] %>.password = <%= g['password'] %>
