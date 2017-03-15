@@ -29,7 +29,7 @@ class mercurial(
   $package_ensure = 'present'
 ) inherits mercurial::params {
 
-  package { 'hg' :
+  package { 'mercurial' :
     name     => $package_name,
     ensure   => $package_ensure,
     provider => $provider,
