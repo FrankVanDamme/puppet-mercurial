@@ -29,6 +29,9 @@ class mercurial(
   $package_ensure = 'present'
 ) inherits mercurial::params {
 
+  $trusted_groups_ = hiera_array("mercurial::trusted_groups", $trusted_groups)
+  $auth_groups_ = hiera_array("mercurial::auth_groups", $auth_groups)
+
   package { 'mercurial' :
     name     => $package_name,
     ensure   => $package_ensure,
