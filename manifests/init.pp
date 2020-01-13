@@ -25,6 +25,8 @@
 class mercurial(
   $auth_groups = $mercurial::params::auth_groups,
   $trusted_groups = $mercurial::params::trusted_groups,
+  $no_http_proxy  = $mercurial::params::no_http_proxy,
+  $http_proxy     = $mercurial::params::http_proxy,
   $provider       = $mercurial::params::provider,
   $package_ensure = 'present'
 ) inherits mercurial::params {

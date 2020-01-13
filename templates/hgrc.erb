@@ -45,3 +45,7 @@ groups=<% @trusted_groups_.each do |g| -%><%= g %>,<% end -%> <% end %>
 <%= g['group'] %>.schemes = <%= g['schemes'] %>
 <% end -%>
 <% end %>
+
+[http_proxy]
+host=<%= @http_proxy %>
+no=<%= @no_http_proxy %>

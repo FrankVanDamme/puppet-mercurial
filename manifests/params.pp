@@ -14,6 +14,8 @@ class mercurial::params {
 
   $auth_groups    = []
   $trusted_groups = []
+  $http_proxy = ''
+  $no_http_proxy = ''
 
   $provider = $::osfamily ? {
     'Solaris' => "pkgutil",
