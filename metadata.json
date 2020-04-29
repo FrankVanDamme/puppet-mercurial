@@ -2,9 +2,10 @@
   "name": "frankvandamme-mercurial",
   "version": "0.1.0",
   "author": "Rodolfo Ripado, Frank Van Damme",
-  "summary": "",
+  "summary": "Puppet module to install and configure Mercurial",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/FrankVanDamme/puppet-mercurial.git",
+  "project_page": "https://github.com/FrankVanDamme/puppet-mercurial",
   "dependencies": [
 
   ],
