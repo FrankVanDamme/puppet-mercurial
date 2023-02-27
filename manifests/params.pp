@@ -17,13 +17,13 @@ class mercurial::params {
   $http_proxy = ''
   $no_http_proxy = ''
 
-  $provider = $::osfamily ? {
+  $provider = $facts[os][family] ? {
     'Solaris' => "pkgutil",
     'Debian'  => "apt",
     'RedHat'  => "yum",
   }
 
-  case $::osfamily {
+  case $facts[os][family] {
     'Debian': {
       $package_name   = 'mercurial'
       $conf_dir       = '/etc/mercurial'
@@ -31,7 +31,7 @@ class mercurial::params {
     }
 
     default: {
-      case $::operatingsystem {
+      case $facts[os][name] {
 	'Debian', 'RedHat', 'CentOS': {
 	  $package_name   = 'mercurial'
 	  $conf_dir       = '/etc/mercurial'
@@ -45,8 +45,8 @@ class mercurial::params {
 	}
 
         default: {
-	  fail("Unsupported osfamily: ${::osfamily} operatingsystem: ${::operatingsystem}, module ${module_name} only supports osfamily Debian or Red Hat")
-	}
+          fail("Unsupported osfamily: ${facts[os][family]} operatingsystem: ${facts[os][name]}, module ${module_name} only supports osfamily Debian or Red Hat")
+        }
       }
     }
   }

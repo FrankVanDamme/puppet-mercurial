@@ -40,7 +40,7 @@ class mercurial(
     provider => $provider,
   }
 
-  if ( $::operatingsystem == "OpenIndiana" ){
+  if ( $facts[os][name] == "OpenIndiana" ){
       package { 'python27':
 	  provider => $provider,
 	  ensure   => present,
