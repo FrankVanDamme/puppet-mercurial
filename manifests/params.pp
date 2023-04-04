@@ -32,17 +32,17 @@ class mercurial::params {
 
     default: {
       case $facts[os][name] {
-	'Debian', 'RedHat', 'CentOS': {
-	  $package_name   = 'mercurial'
-	  $conf_dir       = '/etc/mercurial'
-	  $conf_file      = 'hgrc'
-	}
+        'Debian', 'RedHat', 'CentOS', 'Rocky', 'Almalinux':{
+          $package_name   = 'mercurial'
+          $conf_dir       = '/etc/mercurial'
+          $conf_file      = 'hgrc'
+        }
 
-	'OpenIndiana': {
-	  $package_name   = 'mercurial'
-	  $conf_dir       = '/etc/mercurial'
-	  $conf_file      = 'hgrc'
-	}
+        'OpenIndiana': {
+          $package_name   = 'mercurial'
+          $conf_dir       = '/etc/mercurial'
+          $conf_file      = 'hgrc'
+        }
 
         default: {
           fail("Unsupported osfamily: ${facts[os][family]} operatingsystem: ${facts[os][name]}, module ${module_name} only supports osfamily Debian or Red Hat")
